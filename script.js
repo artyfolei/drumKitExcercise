@@ -14,22 +14,15 @@ for (let btnDrum of btnsDrum) {
 
 document.addEventListener("keydown", function (event) {
   playSoundByLetter(event.key);
-<<<<<<< HEAD
-});
-
-/**
- * Přehraje audio podle písmene v parametru
- * @param {*} letter
- */
-function playSoundByLetter(letter) {
-  switch (letter) {
-=======
   btnAnimation(event.key);
 });
 
+/**
+ * Zahraje zvuk podle písmena, které si bere z parametru
+ * @param {*} currentLetter
+ */
 function playSoundByLetter(currentLetter) {
   switch (currentLetter) {
->>>>>>> developement
     case "w":
       const crash = new Audio("sounds/crash.mp3");
       crash.play();
@@ -73,6 +66,10 @@ function playSoundByLetter(currentLetter) {
   }
 }
 
+/**
+ * Animuje dané písmeno, které si bere z parametru
+ * @param {*} currentLetter
+ */
 function btnAnimation(currentLetter) {
   const activeBtn = document.querySelector(`.${currentLetter}`);
   activeBtn.classList.add("pressed");
