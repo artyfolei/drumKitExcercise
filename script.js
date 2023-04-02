@@ -65,7 +65,7 @@ function playSoundByLetter(currentLetter) {
 function btnAnimation(currentLetter) {
   const activeBtn = document.querySelector(`.${currentLetter}`);
   activeBtn.classList.add("pressed");
-  setTimeout(function () {
+  setTimeout(() => {
     activeBtn.classList.remove("pressed");
-  }, 1000);
+  }, 300);
 }
