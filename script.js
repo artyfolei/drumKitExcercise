@@ -8,11 +8,13 @@ for (let btnDrum of btnsDrum) {
     // alert("Kliknuls");
     let btnDrumInnerHTML = this.innerHTML;
     playSoundByLetter(btnDrumInnerHTML);
+    btnAnimation(btnDrumInnerHTML);
   });
 }
 
 document.addEventListener("keydown", function (event) {
   playSoundByLetter(event.key);
+<<<<<<< HEAD
 });
 
 /**
@@ -21,6 +23,13 @@ document.addEventListener("keydown", function (event) {
  */
 function playSoundByLetter(letter) {
   switch (letter) {
+=======
+  btnAnimation(event.key);
+});
+
+function playSoundByLetter(currentLetter) {
+  switch (currentLetter) {
+>>>>>>> developement
     case "w":
       const crash = new Audio("sounds/crash.mp3");
       crash.play();
@@ -62,4 +71,12 @@ function playSoundByLetter(letter) {
       defaultSound.play();
       break;
   }
+}
+
+function btnAnimation(currentLetter) {
+  const activeBtn = document.querySelector(`.${currentLetter}`);
+  activeBtn.classList.add("pressed");
+  setTimeout(() => {
+    activeBtn.classList.remove("pressed");
+  }, 300);
 }
