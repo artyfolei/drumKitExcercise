@@ -8,15 +8,17 @@ for (let btnDrum of btnsDrum) {
     // alert("Kliknuls");
     let btnDrumInnerHTML = this.innerHTML;
     playSoundByLetter(btnDrumInnerHTML);
+    btnAnimation(btnDrumInnerHTML);
   });
 }
 
 document.addEventListener("keydown", function (event) {
-  playSoundByLetter(event.key)
+  playSoundByLetter(event.key);
+  btnAnimation(event.key);
 });
 
-function playSoundByLetter(letter) {
-  switch (letter) {
+function playSoundByLetter(currentLetter) {
+  switch (currentLetter) {
     case "w":
       const crash = new Audio("sounds/crash.mp3");
       crash.play();
@@ -58,4 +60,12 @@ function playSoundByLetter(letter) {
       defaultSound.play();
       break;
   }
+}
+
+function btnAnimation(currentLetter) {
+  const activeBtn = document.querySelector(`.${currentLetter}`);
+  activeBtn.classList.add("pressed");
+  setTimeout(function () {
+    activeBtn.classList.remove("pressed");
+  }, 1000);
 }
