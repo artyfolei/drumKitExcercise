@@ -12,9 +12,13 @@ for (let btnDrum of btnsDrum) {
 }
 
 document.addEventListener("keydown", function (event) {
-  playSoundByLetter(event.key)
+  playSoundByLetter(event.key);
 });
 
+/**
+ * Přehraje audio podle písmene v parametru
+ * @param {*} letter
+ */
 function playSoundByLetter(letter) {
   switch (letter) {
     case "w":
